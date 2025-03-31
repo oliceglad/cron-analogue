@@ -5,13 +5,12 @@ import { EVENT_COLORS } from './useEvent';
 export type Event = {
   id: string;
   name: string;
+  desc?: string;
+  tasks?: string;
   color: (typeof EVENT_COLORS)[number];
   date: Date;
-  allDay: boolean;
-} & (
-  | { allDay: false; startTime: string; endTime: string }
-  | { allDay: true; startTime?: never; endTime?: never }
-);
+  startTime: string;
+}
 
 type EventsContext = {
   events: Event[];
